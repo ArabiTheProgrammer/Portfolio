@@ -1,0 +1,76 @@
+.card{
+  width: 250px;
+  height: 200px;
+  background: #1c1f2b;
+  border-radius: 20px;
+  position: relative;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card::after, .card::before{
+  content: '';
+  position: absolute;
+  height: 260px;
+  width: 210px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 20px;
+  box-shadow: inset -1px 0px 300px 10px rgba(0,0,0,0.75);
+  rotate: 83deg;
+}
+
+.card::before{
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+.card2{
+  width: 250px;
+  height: 200px;
+  background: #1c1f2b;
+  border-radius: 20px;
+  position: relative;
+}
+
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card2::after, .card2::before{
+  content: '';
+  position: absolute;
+  height: 260px;
+  width: 210px;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  border-radius: 20px;
+  box-shadow: inset -1px 0px 300px 10px rgba(0,0,0,0.75);
+  rotate: 100deg;
+}
+
+.card2::before{
+  filter: blur(1.5rem);
+  opacity: 0.5;
+}
+
+@keyframes spin{
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+}
