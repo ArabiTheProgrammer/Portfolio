@@ -14,9 +14,10 @@ select {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #1b1b1f;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .button {
