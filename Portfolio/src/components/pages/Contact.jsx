@@ -3,6 +3,7 @@ import Circles from '../layer/Circles'
 import Title from '../layer/Title'
 import { BsArrowRight } from "react-icons/bs";
 import Transition from '../Transition';
+import { motion } from 'framer-motion';
 
 const Contact = () => { 
   return (
