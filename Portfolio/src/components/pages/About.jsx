@@ -241,7 +241,7 @@ const About = () => {
             ))}
           </div>
 
-          <div className="py-2 xl:py-6 xl:ml-0 ml-2 flex flex-wrap gap-y-[1px] gap-x-3 xl:gap-y-4 items-center">
+          <div className="py-2 xl:py-6 xl:ml-0 ml-[37px] flex  flex-wrap gap-y-[1px] gap-x-3 xl:gap-y-4 items-center">
             {aboutData[index].info.map((item, itemIndex) => (
               <motion.div
               variants={fadeIn('up', 0.2)}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 import { FaReact } from "react-icons/fa";
 import { FaHtml5 } from "react-icons/fa";
 import { FaCss3 } from "react-icons/fa";
@@ -9,6 +10,7 @@ import { SiTailwindcss } from "react-icons/si";
 import { FaFigma } from "react-icons/fa";
 import 'swiper/css'
 import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
 import { RxArrowTopRight } from "react-icons/rx";
 
 export const serviceData = [
@@ -41,7 +43,8 @@ export const serviceData = [
 
 const SeviceSlider = () => {
   return (
-    <Swiper breakpoints={{
+    <Swiper 
+      breakpoints={{
         320: {
             slidesPerView: 1,
             spaceBetween: 15,
@@ -54,8 +57,12 @@ const SeviceSlider = () => {
             slidesPerView: 3,
             spaceBetween: 15,
         },
-    }}
-      className="h-[240px] sm:h-[340px]"
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[Pagination]}
+      className="h-[280px] sm:h-[380px] pb-12"
     >
       {
         serviceData.map((item, index) => {
