@@ -214,14 +214,14 @@ const About = () => {
             </ul>
           </div>
 
-          <div className="h-0 w-[13rem]">
-            <Link className="flex button border border-accent mt-7" to="https://gericht.vercel.app/">
-              <h1>Download CV</h1>
-              <div className="button-icon">
-                <FaDownload/>
-              </div>
-            </Link>
+       <div className="w-[13rem]">
+        <Link className="flex items-center justify-between button border border-accent mt-7 px-4 py-3" to="https://gericht.vercel.app/">
+          <h1>Download CV</h1>
+          <div className="button-icon ml-2">
+            <FaDownload/>
           </div>
+        </Link>
+      </div>
         </motion.div>
 
         <div className="flex flex-col xl:mt-20 mt-28 w-full xl:max-w-[48%] h-[480px]">
