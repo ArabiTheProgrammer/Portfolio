@@ -5,9 +5,18 @@ import { fadeIn } from '../../../variants';
 import Avatar from '../Avatar';
 import ParticlesContainer from '../ParticlesContainer';
 import { TypeAnimation } from "react-type-animation";
+import Transition from '../Transition';
 
 const Home = () => {
   return (
+
+    <>
+      <Transition />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
     <div className="h-full pt-[150px] z-[5]" >
       <div className="w-full h-full">
         <div className="text-center flex flex-col justify-center xl:text-left h-full container mx-auto">
@@ -17,7 +26,7 @@ const Home = () => {
            initial='hidden'
            animate='show'
            exit='hidden'
-             >
+           >
 
             <TypeAnimation className="h2"
               speed={50}
@@ -48,6 +57,8 @@ const Home = () => {
           <motion.div variants={fadeIn('up', 0.4)} initial='hidden' animate='show' exit='hidden' className="w-full h-full max-w-[150px] lg:max-w-[267px] md:max-w-[200px] md:max-h-[180px] xl:max-w-[507px] xl:absolute -bottom-32 lg:bottom-[23.6rem] lg:right-[15%]"><Avatar/> </motion.div>
         </div>
     </div>
+              </motion.div>
+            </>
   )
 }
 

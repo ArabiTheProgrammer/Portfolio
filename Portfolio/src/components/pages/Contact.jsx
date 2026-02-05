@@ -2,9 +2,18 @@ import React, { useState } from 'react'
 import Circles from '../layer/Circles'
 import Title from '../layer/Title'
 import { BsArrowRight } from "react-icons/bs";
+import Transition from '../Transition';
 
 const Contact = () => { 
   return (
+
+    <>
+      <Transition />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
     <div className="h-full font-Poppins">
       <div className="container py-32 mx-auto text-center xl:text-left flex items-center justify-center h-full ">
         <div className="flex flex-col max-w-[700px] w-full">
@@ -29,6 +38,8 @@ const Contact = () => {
       </div>
       <Circles/>
     </div>
+      </motion.div>
+    </>
   )
 }
 

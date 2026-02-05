@@ -11,6 +11,7 @@ import Credentials from '../layer/Credentials';
 import { Link } from 'react-router';
 import { FaDownload } from "react-icons/fa";
 import '../../App.css'
+import Transition from '../Transition';
 import ParticlesContainer from '../ParticlesContainer';
 
 const aboutData = [
@@ -96,6 +97,15 @@ const About = () => {
   let [index, setIndex] = useState(0)
 
   return (
+    
+    <>
+      <Transition />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+
     <div className="h-full py-24 text-center font-Poppins xl:text-left">
       <div className="relative xl:-ml-20 uppercase flex items-center justify-center">
         <h1 className="h1 xl:text-[56px] text-white font-black absolute z-[5] ">
@@ -115,7 +125,7 @@ const About = () => {
           animate="show"
           exit="hidden"
           className="flex-1 flex flex-col xl:mt-0 mt-11"
-        >
+          >
           <h1 className="text-[27px] lg:text-[34px] xl:text-[40px] font-Poppins xl:-mt-[6.5rem] font-semibold text-white uppercase">
             Personal <span className="text-accent">Info's</span>
           </h1>
@@ -218,13 +228,13 @@ const About = () => {
           <div className="flex xl:ml-0 gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
             {aboutData.map((item, itemIndex) => (
               <motion.div
-                variants={fadeIn('up', 0.2)}
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                onClick={() => setIndex(itemIndex)}
-                key={itemIndex}
-                className={`${index === itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} cursor-pointer capitalize xl:text-lg hover:text-accent transition-all duration-300 relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
+              variants={fadeIn('up', 0.2)}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              onClick={() => setIndex(itemIndex)}
+              key={itemIndex}
+              className={`${index === itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} cursor-pointer capitalize xl:text-lg hover:text-accent transition-all duration-300 relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
               >
                 {item.title}
               </motion.div>
@@ -234,12 +244,12 @@ const About = () => {
           <div className="py-2 xl:py-6 xl:ml-0 ml-2 flex flex-wrap gap-y-[1px] gap-x-3 xl:gap-y-4 items-center">
             {aboutData[index].info.map((item, itemIndex) => (
               <motion.div
-                variants={fadeIn('up', 0.2)}
-                initial="hidden"
-                animate="show"
-                exit="hidden"
-                key={itemIndex}
-                className="flex flex-col max-w-max gap-x-2 items-center text-white/60"
+              variants={fadeIn('up', 0.2)}
+              initial="hidden"
+              animate="show"
+              exit="hidden"
+              key={itemIndex}
+              className="flex flex-col max-w-max gap-x-2 items-center text-white/60"
               >
                 <motion.div className="flex">{item.title}</motion.div>
                 <motion.div className="text-[14px] py-[10px]">{item.stage}</motion.div>
@@ -249,6 +259,8 @@ const About = () => {
         </div>
       </div>
     </div>
+              </motion.div>
+          </>
   )
 }
 

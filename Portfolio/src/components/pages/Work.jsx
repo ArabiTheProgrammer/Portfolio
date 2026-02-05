@@ -5,9 +5,17 @@ import Bulb from '../layer/Bulb'
 import WorkSlider from '../layer/WorkSlider'
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../../variants';
+import Transition from '../Transition';
 
 const Work = () => {
   return (
+    <>
+      <Transition />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
     <div className="h-full text-white font-Poppins py-[85px] lg:py-24">
       <Circles/>
       <Title className="xl:text-[92px] tracking-widest md:text-[60px] md:mt-0 lg:mt-0 sm:mt-2 mt-3 text-[45px] sm:text-[50px] lg:text-[89px] xl:mt-5" text="Wo" span="rks" shadow="Projects"/>
@@ -24,6 +32,8 @@ const Work = () => {
       </div>
       <Bulb/>
     </div>
+      </motion.div>
+    </>
   )
 }
 

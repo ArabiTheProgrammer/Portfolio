@@ -5,10 +5,18 @@ import Bulb from '../layer/Bulb'
 import ServiceSlider from '../layer/SeviceSlider'
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../../variants';
+import Transition from '../Transition';
 import '../../App.css'
 
 const Service = () => {
   return (
+    <>
+      <Transition />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
     <div className="h-full py-24 font-Poppins text-white overflow-hidden">
       <Circles/>
       <Title className="xl:text-[92px] tracking-widest md:text-[60px] md:mt-0 lg:mt-0 sm:mt-2 mt-3 text-[45px] sm:text-[50px] lg:text-[89px] xl:mt-5" text="Servi" span="ces" shadow="Assistance"/>
@@ -25,6 +33,8 @@ const Service = () => {
       </div>
       <Bulb/>
     </div>
+      </motion.div>
+    </>
   )
 }
 
