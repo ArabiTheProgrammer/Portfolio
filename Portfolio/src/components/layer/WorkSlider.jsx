@@ -36,11 +36,11 @@ const WorkSlider = () => {
           {
             workSlides.slides.map((slide, index) => {
               return (
-                  <div className="grid grid-cols-2 grid-rows-2 gap-4 cursor-pointer">
+                  <div key={index} className="grid grid-cols-2 grid-rows-2 gap-4 cursor-pointer">
                      {
-                        slide.images.map((image, index) => {
+                        slide.images.map((image, imageIndex) => {
                             return(
-                              <div className="relative rounded-lg overflow-hidden flex items-center justify-center group">
+                              <div key={imageIndex} className="relative rounded-lg overflow-hidden flex items-center justify-center group">
                                   <div className="flex items-center justify-center overflow-hidden relative group">
                                     <Images width={500} height={300} src={image.path} />
                                     <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#e838cc] to-[#4a22bd] opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
