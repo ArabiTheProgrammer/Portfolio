@@ -60,18 +60,10 @@ const aboutData = [
     title: 'experience',
     info: [
       {
-        title: (
-          <motion.div variants={fadeIn('up', 0.2)} initial="hidden" animate="show" exit="hidden">
-            <SquareDiv text="2" symbol="+" ptext="Years Of Experience"/>
-          </motion.div>
-        ),
+        title: <SquareDiv text="2" symbol="+" ptext="Years Of Experience"/>,
       },
       {
-        title: (
-          <motion.div variants={fadeIn('up', 0.2)} initial="hidden" animate="show" exit="hidden">
-            <SquareDiv2 text="10" symbol="+" ptext="Completed Projects"/>
-          </motion.div>
-        ),
+        title: <SquareDiv2 text="10" symbol="+" ptext="Completed Projects"/>,
       },
     ],
   },
@@ -235,7 +227,7 @@ const About = () => {
               exit="hidden"
               onClick={() => setIndex(itemIndex)}
               key={itemIndex}
-              className={`${index === itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} cursor-pointer capitalize xl:text-lg hover:text-accent transition-all duration-300 relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
+              className={`${index === itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} capitalize xl:text-lg hover:text-accent transition-all duration-300 relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
               >
                 {item.title}
               </motion.div>
@@ -245,15 +237,15 @@ const About = () => {
           <div className="py-2 xl:py-6 xl:ml-0 ml-[37px] flex  flex-wrap gap-y-[1px] gap-x-3 xl:gap-y-4 items-center">
             {aboutData[index].info.map((item, itemIndex) => (
               <motion.div
-              variants={fadeIn('up', 0.2)}
+              variants={fadeIn('up', 0.3 + itemIndex * 0.1)}
               initial="hidden"
               animate="show"
               exit="hidden"
               key={itemIndex}
               className="flex flex-col max-w-max gap-x-2 items-center text-white/60"
               >
-                <motion.div className="flex">{item.title}</motion.div>
-                <motion.div className="text-[14px] py-[10px]">{item.stage}</motion.div>
+                <div className="flex">{item.title}</div>
+                <div className="text-[14px] py-[10px]">{item.stage}</div>
               </motion.div>
             ))}
           </div>
