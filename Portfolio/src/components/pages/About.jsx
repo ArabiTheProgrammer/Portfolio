@@ -217,7 +217,7 @@ const About = () => {
         </div>
         </motion.div>
 
-        <div className="flex flex-col xl:mt-20 mt-28 w-full xl:max-w-[48%] h-[480px]">
+        <div className="flex flex-col xl:mt-20 mt-16 w-full xl:max-w-[48%] h-[480px]">
           <div className="flex xl:ml-0 gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
             {aboutData.map((item, itemIndex) => (
               <motion.div
@@ -234,7 +234,7 @@ const About = () => {
             ))}
           </div>
 
-          <div className="py-2 xl:py-6 xl:ml-0 ml-[37px] flex  flex-wrap gap-y-[1px] gap-x-3 xl:gap-y-4 items-center">
+          <div className="py-2 xl:py-6 xl:ml-0 ml-[30px] flex  flex-wrap gap-y-[1px] gap-x-3 xl:gap-y-4 items-center">
             {aboutData[index].info.map((item, itemIndex) => (
               <motion.div
               variants={fadeIn('up', 0.3 + itemIndex * 0.1)}
