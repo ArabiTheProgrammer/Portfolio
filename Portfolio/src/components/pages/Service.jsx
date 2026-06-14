@@ -19,7 +19,7 @@ const Service = () => {
           >
             <section>
               <span className="eyebrow">Services</span>
-              <h1 className="h1 h-[143px] gradient-text">What I can help you build.</h1>
+              <h1 className="h1 md:h-[54px] lg:h-[80px] xl:h-[144px] gradient-text">What I can help you build.</h1>
             </section>
             <section className="glass-panel p-6 md:p-8">
               <p className="mb-6 text-base md:text-lg">

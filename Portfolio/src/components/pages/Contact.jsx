@@ -79,7 +79,7 @@ const Contact = () => {
             transition={{ duration: 0.65 }}
           >
             <span className="eyebrow">Contact</span>
-            <h1 className="h1 h-[145px] gradient-text">Want to work together?</h1>
+            <h1 className="h1 md:h-[54px] lg:h-[80px] xl:h-[143px] gradient-text">Want to work together?</h1>
             <p className="mb-8 max-w-xl text-base md:text-lg">
               Send me the project details, your deadline, and any design or reference you already have. I will reply with what I can do.
             </p>

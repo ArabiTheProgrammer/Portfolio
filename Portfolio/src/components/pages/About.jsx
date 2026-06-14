@@ -38,7 +38,7 @@ const About = () => {
           >
             <section>
               <span className="eyebrow">About me</span>
-              <h1 className="h1 h-[210px] gradient-text">I am learning by building real things.</h1>
+              <h1 className="h1 md:h-[100px] lg:h-[143px] xl:h-[210px] gradient-text">I am learning by building real projects.</h1>
               <p className="mb-6 max-w-2xl">
                 I started with HTML, CSS, and JavaScript, then moved into React and Tailwind CSS. I am still improving every project, but I care about the basics: spacing, responsive layout, readable code, and pages that do what they are supposed to do.
               </p>
