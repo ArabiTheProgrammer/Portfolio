@@ -1,11 +1,19 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { motion } from 'framer-motion'
-import { Link, useRoutes } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import Logo from '../../public/LogoForPortfolio.png'
 import Images from './layer/Images'
 import { FaFacebookF } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+
+const pageLinks = [
+  { to: '/', label: 'Home' },
+  { to: '/About', label: 'About' },
+  { to: '/Service', label: 'Services' },
+  { to: '/Work', label: 'Work' },
+  { to: '/Contact', label: 'Contact' },
+];
 
 const Header = () => {
 
@@ -20,54 +28,56 @@ const Header = () => {
     }
 
     const menuVariants = {
-        open: {
-            x: 0,
-            transition: {
-            stiffness: 20,
-            damping: 15
-            }
-        },
-        closed: {
-            x: '-100%',
-            transition: {
-            stiffness: 20,
-            damping: 15
-            }
-        }
+        open: { x: 0, transition: { type: 'spring', stiffness: 90, damping: 18 } },
+        closed: { x: '-100%', transition: { type: 'spring', stiffness: 90, damping: 20 } }
     }
 
   return (
-    <div className='max-w-[1300px] mx-auto  flex justify-between text-gray-200
-        text-xl items-center px-12 h-20 '>
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-white/10 bg-slate-950/55 backdrop-blur-2xl">
+      <div className="mx-auto flex h-24 max-w-[1180px] items-center justify-between px-5 text-white md:px-10">
+        <Link to="/" className="flex gap-3">
+          <Images className="h-full w-56 rounded-2xl object-contain" src={Logo} alt="Arabi logo"/>
+        </Link>
 
-            <Images className="xl:ml-10 lg:ml-4" src={Logo} alt="Logo.png"/>
-
-            <ul className='hidden md:flex gap-12 z-10 cursor-pointer'>
-                <li className="z-10"><Link to="https://www.facebook.com/md.jalal.uddin.arabi/" offset={50} duration={500}><FaFacebookF /></Link></li>
-                <li className="z-30"><Link className="z-30" to="https://github.com/ArabiTheProgrammer" offset={50} duration={500}><FaGithub className="z-30" /></Link></li>
-            </ul>
-
-            <div onClick={toggleNav} className='md:hidden z-20 text-gray-200'>
-                {nav ? <AiOutlineClose size={30} /> : <AiOutlineMenu size={30} />}
-            </div>
-
-            <motion.div
-            initial={false}
-            animate={nav ? 'open' : 'closed'}
-            variants={menuVariants}
-            className='fixed left-0 top-0 w-full min-h-screen bg-gray-900 z-10'
-            >
-                <ul className='font-semibold text-4xl space-y-8 mt-24 text-center'>
-                    <li><Link to="https://www.facebook.com/md.jalal.uddin.arabi/" onClick={closeNav} offset={50} duration={500}>FaceBook</Link></li>
-                    <li ><Link to="https://github.com/ArabiTheProgrammer" onClick={closeNav} offset={50} duration={500}>Github</Link></li>
-                </ul>
-
-
-            </motion.div>
-
-
-
+        <div className="hidden items-center gap-3 md:flex">
+          <a className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white/70 transition hover:border-teal-200 hover:text-teal-100" href="https://www.facebook.com/md.jalal.uddin.arabi/" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <FaFacebookF />
+          </a>
+          <a className="grid h-10 w-10 place-items-center rounded-full border border-white/10 text-white/70 transition hover:border-teal-200 hover:text-teal-100" href="https://github.com/ArabiTheProgrammer" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <FaGithub />
+          </a>
         </div>
+
+        <button onClick={toggleNav} className="z-50 grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-white md:hidden" aria-label="Toggle menu">
+          {nav ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+        </button>
+
+        <motion.div
+          initial={false}
+          animate={nav ? 'open' : 'closed'}
+          variants={menuVariants}
+          className="fixed left-0 top-0 z-40 min-h-screen w-full bg-slate-950/95 px-8 pt-28 backdrop-blur-2xl md:hidden"
+        >
+          <ul className="space-y-5 text-3xl font-bold">
+            {pageLinks.map((item) => (
+              <li key={item.label}>
+                <NavLink
+                  to={item.to}
+                  onClick={closeNav}
+                  className={({ isActive }) => isActive ? 'text-teal-200' : 'text-white'}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-10 flex gap-3">
+            <a className="secondary-link" href="https://github.com/ArabiTheProgrammer" target="_blank" rel="noreferrer">GitHub</a>
+            <a className="secondary-link" href="https://www.facebook.com/md.jalal.uddin.arabi/" target="_blank" rel="noreferrer">Facebook</a>
+          </div>
+        </motion.div>
+      </div>
+    </header>
   )
 }
 

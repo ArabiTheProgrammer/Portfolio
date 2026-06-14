@@ -1,38 +1,46 @@
-import React from 'react'
-import Circles from '../layer/Circles'
-import Title from '../layer/Title'
-import Bulb from '../layer/Bulb'
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { HiArrowRight } from 'react-icons/hi2'
 import WorkSlider from '../layer/WorkSlider'
-import { motion } from 'framer-motion';
-import { fadeIn } from '../../../variants';
-import Transition from '../Transition';
+import Transition from '../Transition'
 
 const Work = () => {
   return (
     <>
       <Transition />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-    <div className="h-full text-white font-Poppins py-[85px] lg:py-24">
-      <Circles/>
-      <Title className="xl:text-[92px] tracking-widest md:text-[60px] md:mt-0 lg:mt-0 sm:mt-2 mt-3 text-[45px] sm:text-[50px] lg:text-[89px] xl:mt-5" text="Wo" span="rks" shadow="Projects"/>
-      <div className="mx-auto container">
-        <div className="flex flex-col xl:flex-row gap-x-8">
-          <div className="text-center flex lg:w-[32vw] flex-col xl:text-left mb-4 xl:mb-0">
-             <motion.h2 variants={fadeIn ('up', 0.2)} initial="hidden" animate='show' exit='hidden' className="h2 mt-16 xl:mt-28">My Works <span className="text-accent">.</span></motion.h2>
-             <motion.p variants={fadeIn ('up', 0.4)} initial="hidden" animate='show' exit='hidden' className="mb-4 md:mx-auto lg:mx-0 max-w-[400px]">I build responsive, user-friendly websites using modern front-end technologies like HTML, CSS, JavaScript, and React. Let’s create something great together! Some of my works are also listed here!</motion.p>
-          </div>
-          <motion.div variants={fadeIn ('down', 0.6)} initial="hidden" animate='show' exit='hidden' className="w-full xl:max-w-[65%] xl:mt-24">
-            <WorkSlider/>
+      <main className="section-shell">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.65 }}
+            className="mb-10 grid gap-8 xl:grid-cols-[0.78fr_1.22fr] xl:items-end"
+          >
+            <section>
+              <span className="eyebrow">Selected work</span>
+              <h1 className="h1 gradient-text">Some projects I have worked on.</h1>
+            </section>
+            <section className="glass-panel p-6 md:p-8">
+              <p className="mb-6 text-base md:text-lg">
+                These are the kinds of projects I use to improve my frontend skills: restaurant pages, ecommerce layouts, business websites, and agency-style landing pages.
+              </p>
+              <Link to="/Contact" className="secondary-link">
+                Talk about a project
+                <HiArrowRight />
+              </Link>
+            </section>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.12 }}
+          >
+            <WorkSlider />
           </motion.div>
         </div>
-      </div>
-      <Bulb/>
-    </div>
-      </motion.div>
+      </main>
     </>
   )
 }

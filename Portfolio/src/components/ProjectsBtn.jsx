@@ -1,16 +1,14 @@
-import React from 'react'
 import { Link } from 'react-router'
-import Images from './layer/Images'
-import img from '../../public/rounded-text.png'
 import { HiArrowRight } from "react-icons/hi";
-import { FaLongArrowAltRight } from "react-icons/fa";
 
 const ProjectsBtn = () => {
   return (
     <div className="mx-auto xl:mx-0 z-[5]">
-      <Link to="/Work" className="relative w-[185px] h-[185px] flex justify-center items-center border rounded-full group">
-        <Images src={img} alt="Rounded-Text.png" className="animate-spin-slow w-full h-full max-w-[141px] max-h-[148px]"/>
-        <HiArrowRight className="absolute text-white text-4xl group-hover:translate-x-2 transition-all duration-300" />
+      <Link to="/Work" className="group inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.06] px-5 py-3 text-sm font-semibold text-white shadow-xl shadow-black/20 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-teal-200 hover:bg-teal-300 hover:text-slate-950">
+        View selected work
+        <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-slate-950 transition duration-300 group-hover:translate-x-1">
+          <HiArrowRight className="text-xl" />
+        </span>
       </Link>
     </div>
   )

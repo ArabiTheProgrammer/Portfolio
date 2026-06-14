@@ -1,105 +1,100 @@
-import React from 'react'
-import ProjectsBtn from '../ProjectsBtn'
 import { motion } from 'framer-motion'
-import { fadeIn } from '../../../variants'
+import { TypeAnimation } from 'react-type-animation'
+import { HiArrowRight } from 'react-icons/hi2'
+import { Link } from 'react-router-dom'
 import Avatar from '../Avatar'
 import ParticlesContainer from '../ParticlesContainer'
-import { TypeAnimation } from 'react-type-animation'
 import Transition from '../Transition'
+
+const skills = ['React', 'Tailwind CSS', 'JavaScript', 'Figma', 'Next.js']
+const stats = [
+  { value: '10+', label: 'Projects' },
+  { value: '2+', label: 'Years practice' },
+  { value: '5', label: 'Main tools' },
+]
 
 const Home = () => {
   return (
     <>
       <Transition />
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-        <div className="h-full pt-8 md:pt-[150px] z-[5]">
-          <div className="w-full h-full">
-            <div className="text-center flex flex-col justify-center xl:text-left h-full container mx-auto">
+      <main className="section-shell overflow-hidden flex items-center">
+        <ParticlesContainer />
+        <div className="section-container grid items-center gap-12 xl:grid-cols-[1.05fr_0.95fr]">
+          <motion.section
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center xl:text-left"
+          >
+            <div className="eyebrow mx-auto xl:mx-0">Frontend developer</div>
 
-              {/* Avatar - top center on mobile only */}
-              <div className="flex justify-center xl:hidden mb-10">
-                <motion.div
-                  variants={fadeIn('down', 0.4)}
-                  initial='hidden'
-                  animate='show'
-                  exit='hidden'
-                  className="w-[150px] h-[150px] md:w-[200px] md:h-[200px]"
-                >
-                  <Avatar />
-                </motion.div>
-              </div>
+            <h1 className="mb-6 text-[42px] font-black leading-[0.98] text-white md:text-[70px] lg:text-[86px]">
+              Hi, I am Jalal.
+              <span className="gradient-text block">I make websites.</span>
+            </h1>
 
-              <motion.h1
-                variants={fadeIn('down', 0.4)}
-                initial='hidden'
-                animate='show'
-                exit='hidden'
-                className="text-[30px] md:text-[45px] lg:text-[60px] mb-[10px] font-semibold leading-tight text-white z-[5]"
-              >
-                Hi! My Name Is <br />
-                <span className="text-red-700 font-bold">MD.Jalal Uddin Arabi</span>
-              </motion.h1>
-
-              <motion.div variants={fadeIn('down', 0.4)} initial='hidden' animate='show' exit='hidden'>
-                <TypeAnimation
-                  className="h2"
-                  speed={50}
-                  repeat={Infinity}
-                  style={{ color: '#ffffff' }}
-                  sequence={[
-                    'Transforming Ideas Into Digital Reality', 2000,
-                    'Transforming Ideas Into User Experience', 2000,
-                  ]}
-                />
-              </motion.div>
-
-              <motion.p
-                variants={fadeIn('down', 0.4)}
-                initial='hidden'
-                animate='show'
-                exit='hidden'
-                className="max-w-sm mt-[10px] md:text-base text-[14px] z-[5] xl:max-x-xl mx-auto xl:mx-0 mb-10 xl:mb-16"
-              >
-                I'm a Bangladeshi based web designer & front‑end developer focused on crafting clean & user‑friendly experiences, I am passionate about building excellent software that improves the lives of those around me.
-              </motion.p>
-
-              <div className="flex md:mt-[-10px] lg:mt-[-19px] justify-center xl:hidden relative">
-                <ProjectsBtn />
-              </div>
-
-              <motion.div
-                variants={fadeIn('down', 0.4)}
-                initial='hidden'
-                animate='show'
-                exit='hidden'
-                className="xl:flex hidden"
-              >
-                <ProjectsBtn />
-              </motion.div>
-
+            <div className="mb-6 min-h-[34px] text-lg font-semibold text-teal-100 md:text-2xl">
+              <TypeAnimation
+                speed={55}
+                repeat={Infinity}
+                sequence={[
+                  'React and Tailwind CSS projects.',
+                  1800,
+                  'Landing pages, portfolios, and business sites.',
+                  1800,
+                  'Clean layouts that work on mobile and desktop.',
+                  1800,
+                ]}
+              />
             </div>
-          </div>
 
-          <div className="w-full h-full absolute right-0 bottom-0">
-            <div className="bg-none -z-50 xl:bg-explosion xl:bg-cover xl:bg-right xl:bg-no-repeat w-full h-full absolute mix-blend-color-dodge"></div>
-            <ParticlesContainer />
-          </div>
+            <p className="mx-auto mb-8 max-w-2xl text-base text-slate-300 md:text-lg xl:mx-0">
+              I am MD. Jalal Uddin Arabi, a frontend developer from Bangladesh. I work mostly with React, Tailwind CSS, JavaScript, and Figma. I like building pages that are easy to use, responsive, and not overcomplicated.
+            </p>
 
-          {/* Avatar - desktop only */}
-          <div className="hidden xl:block w-full h-full absolute xl:-top-0 lg:top-[4rem] pr-16 top-[4rem]">
-            <motion.div
-              variants={fadeIn('up', 0.4)}
-              initial='hidden'
-              animate='show'
-              exit='hidden'
-              className="w-full h-full max-w-[150px] lg:max-w-[267px] md:max-w-[200px] md:max-h-[180px] xl:max-w-[507px] xl:absolute -bottom-32 lg:bottom-[23.6rem] lg:right-[15%]"
-            >
-              <Avatar />
-            </motion.div>
-          </div>
+            <div className="mb-8 flex flex-wrap justify-center gap-3 xl:justify-start">
+              {skills.map((skill) => (
+                <span key={skill} className="rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-sm text-slate-200">
+                  {skill}
+                </span>
+              ))}
+            </div>
 
+            <div className="flex flex-col justify-center gap-3 sm:flex-row xl:justify-start">
+              <Link to="/Work" className="primary-link">
+                See my work
+                <HiArrowRight />
+              </Link>
+              <Link to="/Contact" className="secondary-link">
+                Contact me
+              </Link>
+            </div>
+          </motion.section>
+
+          <motion.aside
+            initial={{ opacity: 0, scale: 0.96, y: 24 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.8, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="relative mx-auto w-full max-w-[500px]"
+          >
+            <div className="absolute -left-8 top-10 hidden rounded-2xl border border-white/10 bg-white/[0.06] px-5 py-4 shadow-2xl shadow-black/30 backdrop-blur-xl md:block">
+              <span className="block text-xs uppercase tracking-[0.22em] text-slate-400">Currently working as a</span>
+              <span className="text-lg font-bold text-white">Frontend Developer</span>
+            </div>
+            <Avatar />
+            <div className="glass-panel mt-5 grid grid-cols-3 gap-2 p-3">
+              {stats.map((stat) => (
+                <div key={stat.label} className="rounded-xl bg-slate-950/35 px-3 py-4 text-center">
+                  <span className="block text-2xl font-black text-white">{stat.value}</span>
+                  <span className="text-xs text-slate-400">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.aside>
         </div>
-      </motion.div>
+      </main>
     </>
   )
 }

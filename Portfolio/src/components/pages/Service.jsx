@@ -1,39 +1,47 @@
-import React from 'react'
-import Circles from '../layer/Circles'
-import Title from '../layer/Title'
-import Bulb from '../layer/Bulb'
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { HiArrowRight } from 'react-icons/hi2'
 import ServiceSlider from '../layer/SeviceSlider'
-import { motion } from 'framer-motion';
-import { fadeIn } from '../../../variants';
-import Transition from '../Transition';
-import '../../App.css'
+import Transition from '../Transition'
 
 const Service = () => {
   return (
     <>
       <Transition />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-    <div className="h-full py-24 font-Poppins text-white overflow-hidden">
-      <Circles/>
-      <Title className="xl:text-[92px] tracking-widest md:text-[60px] md:mt-0 lg:mt-0 sm:mt-2 mt-3 text-[45px] sm:text-[50px] lg:text-[89px] xl:mt-5" text="Servi" span="ces" shadow="Assistance"/>
-      <div className="mx-auto container">
-        <div className="flex flex-col xl:flex-row gap-x-8">
-          <div className="text-center flex xl:w-[32vw] flex-col xl:text-left mb-4 xl:mb-0">
-             <motion.h2 variants={fadeIn ('up', 0.2)} initial="hidden" animate='show' exit='hidden' className="h2 mt-16 xl:mt-28">My Services <span className="text-accent">.</span></motion.h2>
-             <motion.p variants={fadeIn ('up', 0.4)} initial="hidden" animate='show' exit='hidden' className="mb-4 text-[14px] max-w-[400px] mx-auto xl:mx-0">I provide a comprehensive range of professional services designed to meet your needs with precision and care. Whether you're looking for a website, I am committed to delivering exceptional results.</motion.p>
-          </div>
-          <motion.div variants={fadeIn ('down', 0.6)} initial="hidden" animate='show' exit='hidden' className="w-full xl:max-w-[65%] xl:mt-24">
-            <ServiceSlider/>
+      <main className="section-shell">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.65 }}
+            className="mb-10 grid gap-8 xl:grid-cols-[0.8fr_1.2fr] xl:items-end"
+          >
+            <section>
+              <span className="eyebrow">Services</span>
+              <h1 className="h1 h-[143px] gradient-text">What I can help you build.</h1>
+            </section>
+            <section className="glass-panel p-6 md:p-8">
+              <p className="mb-6 text-base md:text-lg">
+                I can build responsive websites, React pages, Tailwind layouts, and simple animations. If you already have a design, I can turn it into a working frontend. If you do not, I can help shape the layout first.
+              </p>
+              <Link to="/Contact" className="secondary-link">
+                Discuss a project
+                <HiArrowRight />
+              </Link>
+            </section>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.12 }}
+            className="overflow-visible"
+          >
+            <ServiceSlider />
           </motion.div>
         </div>
-      </div>
-      <Bulb/>
-    </div>
-      </motion.div>
+      </main>
     </>
   )
 }

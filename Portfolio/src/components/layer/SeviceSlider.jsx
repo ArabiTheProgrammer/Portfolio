@@ -1,88 +1,59 @@
-import React from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import { FaReact } from "react-icons/fa";
-import { FaHtml5 } from "react-icons/fa";
-import { FaCss3 } from "react-icons/fa";
-import { IoLogoJavascript } from "react-icons/io5";
-import { SiNextdotjs } from "react-icons/si";
-import { SiTailwindcss } from "react-icons/si";
-import { FaFigma } from "react-icons/fa";
-import 'swiper/css'
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
-import { RxArrowTopRight } from "react-icons/rx";
+import { FaReact, FaHtml5, FaCss3Alt, FaFigma } from 'react-icons/fa'
+import { IoLogoJavascript } from 'react-icons/io5'
+import { SiNextdotjs, SiTailwindcss, SiFramer } from 'react-icons/si'
 
-export const serviceData = [
-    {
-      icon: <FaReact/>,
-      title: "React JS",
-      description: "I Can Make A Website Based On React JS!",
-    },
-    {
-      icon: <div className="md:flex ml-5 md:ml-0 md:gap-x-5"> <FaHtml5/> <FaCss3/> <IoLogoJavascript/> </div>,
-      title: "Html, CSS And Javascript",
-      description: "I Can Make A Website That Can Be Processed Through Html , CSS And Javascript!",
-    },
-    {
-      icon: <SiNextdotjs />,
-      title: "Next JS",
-      description: "I Can Also Make A Website Based On Next JS!",
-    },
-    {
-      icon: <SiTailwindcss />,
-      title: "Tailwind CSS",
-      description: "I Can Make Any Website With Tailwind CSS Like Html, React , Next JS E.t.c!",
-    },
-    {
-      icon: <FaFigma />,
-      title: "Figma",
-      description: "I Can Also UI/UX Design On Figma Whenever Needed!",
-    },
+const serviceData = [
+  {
+    icon: <FaReact />,
+    title: 'React frontends',
+    description: 'React pages with reusable components, routing, forms, and simple state handling.',
+  },
+  {
+    icon: <SiTailwindcss />,
+    title: 'Tailwind CSS',
+    description: 'CSS that makes layouts that work properly on phones, tablets, and desktop screens.',
+  },
+  {
+    icon: <div className="flex gap-2"><IoLogoJavascript /></div>,
+    title: 'JavaScript',
+    description: 'Small JavaScript interactions on the web page.',
+  },
+  {
+    icon: <SiNextdotjs />,
+    title: 'Next.js builds',
+    description: 'Next.js pages and app structure for projects that need more than a basic React setup.',
+  },
+  {
+    icon: <FaFigma />,
+    title: 'Figma to code',
+    description: 'Turning a Figma design into a responsive frontend as close as possible.',
+  },
+  {
+    icon: <SiFramer />,
+    title: 'Framer Motion',
+    description: 'Page transitions, hover effects, and simple motion where it actually helps.',
+  },
 ]
 
 const SeviceSlider = () => {
   return (
-    <Swiper 
-      breakpoints={{
-        320: {
-            slidesPerView: 1,
-            spaceBetween: 15,
-        },
-        768: {
-            slidesPerView: 2,
-            spaceBetween: 15,
-        },
-        1024: {
-            slidesPerView: 3,
-            spaceBetween: 15,
-        },
-      }}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Pagination]}
-      className="h-[280px] sm:h-[380px] pb-12"
-    >
-      {
-        serviceData.map((item, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <div className="h-max rounded-lg px-6 py-8 flex sm:flex-col gap-x-6 sm:gap-x-0 group cursor-pointer hover:bg-[rgba(85,65,169,0.15)] transition-all duration-300">
-                <div className="text-4xl text-accent mb-4">{item.icon}</div>
-                <div className="mb-8">
-                  <div className="mb-2 text-lg">{item.title}</div>
-                  <p className="max-w-[350px] leading-normal">{item.description}</p>
-                </div>
-                <div className="text-3xl">
-                  <RxArrowTopRight className="group-hover:rotate-45 group-hover:text-accent transition-all duration-300"/>
-                </div>
-              </div>
-            </SwiperSlide>
-          )
-        } )
-      }
-    </Swiper>
+    <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      {serviceData.map((item) => (
+        <article
+          key={item.title}
+          className="group glass-panel flex min-h-[255px] flex-col justify-between p-6 transition duration-300 hover:-translate-y-1 hover:border-teal-200/40"
+        >
+          <div>
+            <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-300/10 text-3xl text-teal-200 transition duration-300 group-hover:bg-teal-300 group-hover:text-slate-950">
+              {item.icon}
+            </div>
+            <h3 className="mb-3 text-xl font-bold text-white">{item.title}</h3>
+            <p className="text-sm leading-7 text-slate-300">{item.description}</p>
+          </div>
+          <span className="mt-6 h-px w-full bg-gradient-to-r from-teal-200/45 via-white/10 to-transparent" />
+        </article>
+      ))}
+    </div>
   )
 }
 

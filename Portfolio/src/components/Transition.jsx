@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion';
 
 const transitionVarients = {
@@ -20,7 +19,7 @@ const Transition = () => {
   return (
     <>
       <motion.div 
-        className="fixed top-0 bottom-0 right-full w-screen h-screen z-[9999999999] bg-[#2e2257]" 
+        className="fixed top-0 bottom-0 right-full w-screen h-screen z-[9999999999] bg-teal-300" 
         variants={transitionVarients} 
         initial='initial' 
         animate='animate' 
@@ -29,7 +28,7 @@ const Transition = () => {
       ></motion.div>
       
       <motion.div 
-        className="fixed top-0 bottom-0 right-full w-screen h-screen z-[999999999] bg-[#3b2d71]" 
+        className="fixed top-0 bottom-0 right-full w-screen h-screen z-[999999999] bg-teal-600" 
         variants={transitionVarients} 
         initial='initial' 
         animate='animate' 
@@ -38,7 +37,7 @@ const Transition = () => {
       ></motion.div>
       
       <motion.div 
-        className="fixed top-0 bottom-0 right-full w-screen h-screen z-[9999999] bg-[#4b3792]" 
+        className="fixed top-0 bottom-0 right-full w-screen h-screen z-[9999999] bg-slate-900" 
         variants={transitionVarients} 
         initial='initial' 
         animate='animate' 

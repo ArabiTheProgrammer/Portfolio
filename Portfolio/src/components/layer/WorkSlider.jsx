@@ -1,69 +1,72 @@
-import React from 'react'
-import { BsArrowRight } from "react-icons/bs";
-import Images from './Images';
+import Images from './Images'
 
-const workSlides = {
-    slides: [
-      {
-        images: [
-          {
-            title: 'title',
-            path: '/Geritch.jpg',
-          },
-          {
-            title: 'title',
-            path: '/Orebi.jpg',
-          },
-          {
-            title: 'title',
-            path: '/NasirTraders.jpg',
-          },
-          {
-            title: 'title',
-            path: '/Finsweet.jpg',
-          },
-        ],
-      },
-    ],
-  };
-  
+const projects = [
+  {
+    title: 'Gericht Restaurant',
+    type: 'Restaurant landing page',
+    stack: 'React / CSS',
+    path: '/Geritch.jpg',
+  },
+  {
+    title: 'Orebi Commerce',
+    type: 'Ecommerce interface',
+    stack: 'React / Tailwind',
+    path: '/Orebi.jpg',
+  },
+  {
+    title: 'Nasir Traders',
+    type: 'Business website',
+    stack: 'Frontend build',
+    path: '/NasirTraders.jpg',
+  },
+  {
+    title: 'Finsweet Clone',
+    type: 'Agency website',
+    stack: 'HTML / CSS / JS',
+    path: '/Finsweet.jpg',
+  },
+]
 
 const WorkSlider = () => {
   return (
-    <div 
-          className="h-[280px] sm:h-[480px]"
+    <div className="grid auto-rows-auto gap-4 sm:grid-cols-2">
+      {projects.map((project, index) => (
+        <article
+          key={project.title}
+          className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.045] shadow-xl shadow-black/20 ${
+            index === 0 ? 'sm:row-span-2' : ''
+          } ${
+            project.title === 'Finsweet Clone' ? 'sm:col-span-2' : ''
+          }`}
         >
-          {
-            workSlides.slides.map((slide, index) => {
-              return (
-                  <div key={index} className="grid grid-cols-2 grid-rows-2 gap-4">
-                     {
-                        slide.images.map((image, imageIndex) => {
-                            return(
-                              <div key={imageIndex} className="relative rounded-lg overflow-hidden flex items-center justify-center group">
-                                  <div className="flex items-center justify-center overflow-hidden relative group">
-                                    <Images width={500} height={300} src={image.path} />
-                                    {/* <div className="absolute inset-0 bg-gradient-to-l from-transparent via-[#e838cc] to-[#4a22bd] opacity-0 group-hover:opacity-80 transition-all duration-700"></div>
-                                    <div className="absolute bottom-0 translate-y-full group-hover:-translate-y-10 group-hover:xl:-translate-y-20 duration-300 transition-all">
-                                      <div className="flex items-center gap-x-1 sm:gap-x-2 text-[10px] sm:text-[13px] tracking-[0.1em] sm:tracking-[0.2em]">
-                                         <div className="delay-100">LIVE</div>
-                                         <div className="translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-150">PROJECT</div>
-                                         <div className="text-base sm:text-xl translate-y-[500%] group-hover:translate-y-0 transition-all duration-300 delay-200">
-                                          <BsArrowRight />
-                                        </div>
-                                      </div>
-                                    </div> */}
-                                  </div>     
-                                </div>
-                            )
-                        })
-                     }
-                  </div>
-
-              )
-            } )
-          }
-        </div>
+          <Images
+            width={700}
+            height={460}
+            src={project.path}
+            alt={project.title}
+            className={`w-full object-cover transition duration-700 group-hover:scale-105 ${
+              index === 0
+                ? 'h-[310px] sm:h-full sm:min-h-[456px]'
+                : project.title === 'Finsweet Clone'
+                  ? 'h-[300px] sm:h-[320px]'
+                  : 'h-[250px] sm:h-[220px]'
+            }`}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/35 to-transparent opacity-90" />
+          <div className="absolute inset-x-0 bottom-0 p-5">
+            <div className="mb-3 inline-flex rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-medium text-teal-100 backdrop-blur">
+              {project.stack}
+            </div>
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className="text-xs uppercase tracking-[0.22em] text-slate-300">{project.type}</p>
+                <h3 className="mt-1 text-xl font-bold text-white">{project.title}</h3>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
   )
 }
 

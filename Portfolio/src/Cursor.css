@@ -48,14 +48,13 @@ body {
   border-radius: 50%;
   transform: translate(-50%, -50%);
   z-index: 10000;
-  /* ✅ default transitions (fast opacity + click scaling) */
   transition: transform 0.15s ease-out, opacity 0.1s ease-out;
 }
 
 .cursor-dot {
   width: 10px;
   height: 10px;
-  background-color: rgb(255, 0, 0);
+  background-color: #5eead4;
 }
 
 .cursor-outline {
@@ -64,16 +63,14 @@ body {
 }
 
 .main-outline {
-  background: rgba(184, 0, 0, 0.321);
+  background: #43b4a363;
   z-index: 9999;
 }
 
-/* ✅ click scale effect */
 .cursor-outline.click-effect {
   transform: translate(-50%, -50%) scale(0.6);
 }
 
-/* slower fade while idle */
 body.cursor-idle .cursor-dot,
 body.cursor-idle .cursor-outline,
 body.cursor-idle .trail-outline {

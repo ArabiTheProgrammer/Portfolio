@@ -1,259 +1,99 @@
-import React, { useState } from 'react'
-import Circles from '../layer/Circles'
-import { motion } from 'framer-motion';
-import { fadeIn } from '../../../variants';
-import { FaHtml5, FaCss3, FaJs, FaReact, FaBootstrap , FaFigma } from "react-icons/fa";
-import { SiFramer, SiTailwindcss  } from "react-icons/si";
-import CircularProgressBar from '../layer/CircularProgressBar';
-import SquareDiv from '../layer/SquareDiv';
-import SquareDiv2 from '../layer/SquareDiv2';
-import Credentials from '../layer/Credentials';
-import { Link } from 'react-router';
-import { FaDownload } from "react-icons/fa";
-import '../../App.css'
-import Transition from '../Transition';
-import ParticlesContainer from '../ParticlesContainer';
+import { motion } from 'framer-motion'
+import { FaDownload, FaReact, FaHtml5, FaCss3Alt, FaFigma } from 'react-icons/fa'
+import { IoLogoJavascript } from 'react-icons/io5'
+import { SiTailwindcss, SiNextdotjs } from 'react-icons/si'
+import Transition from '../Transition'
 
-const aboutData = [
-  {
-    title: 'skills',
-    info: [
-      {
-        title: <CircularProgressBar percentage={100}/>,
-        stage: 'Html',
-      },
-      {
-        title: <CircularProgressBar percentage={100}/>,
-        stage: 'CSS',
-      },
-      {
-        title: <CircularProgressBar percentage={78}/>,
-        stage: 'JavaScript',
-      },
-      {
-        title: <CircularProgressBar percentage={97}/>,
-        stage: 'React',
-      },
-      {
-        title: <CircularProgressBar percentage={91}/>,
-        stage: 'Next JS',
-      },
-      {
-        title: <CircularProgressBar percentage={95}/>,
-        stage: 'BootStrap',
-      },
-      {
-        title: <CircularProgressBar percentage={100}/>,
-        stage: 'Tailwind CSS',
-      },
-      {
-        title: <CircularProgressBar percentage={92}/>,
-        stage: 'Figma',
-      },
-      {
-        title: <CircularProgressBar percentage={73}/>,
-        stage: 'Redux',
-      },
-    ],
-  },
-  {
-    title: 'experience',
-    info: [
-      {
-        title: <SquareDiv text="2" symbol="+" ptext="Years Of Experience"/>,
-      },
-      {
-        title: <SquareDiv2 text="10" symbol="+" ptext="Completed Projects"/>,
-      },
-    ],
-  },
-  {
-    title: 'credentials',
-    info: [
-      {
-        title: (
-          <Credentials
-            time="2023 - present"
-            topic="WEB DEVELOPER"
-            credit="Creative IT Institute"
-            description="I wanted to credit Creative IT Institute because, without them I wouldnt be able to make this website till this day because, Creative IT institute has helped me very much in making websites and they also helped other people with making websites."
-          />
-        ),
-      },
-    ],
-  },
-];
+const skills = [
+  { name: 'HTML', level: 'Strong', icon: FaHtml5 },
+  { name: 'CSS', level: 'Strong', icon: FaCss3Alt },
+  { name: 'JavaScript', level: 'Growing fast', icon: IoLogoJavascript },
+  { name: 'React', level: 'Daily stack', icon: FaReact },
+  { name: 'Tailwind CSS', level: 'Daily stack', icon: SiTailwindcss },
+  { name: 'Next.js', level: 'Learning/building', icon: SiNextdotjs },
+  { name: 'Figma', level: 'Design handoff', icon: FaFigma },
+]
+
+const details = [
+  ['Name', 'MD. Jalal Uddin Arabi'],
+  ['Location', 'Bangladesh'],
+  ['Focus', 'Frontend development'],
+  ['Email', 'mdjalaluddinarabi@gmail.com'],
+  ['Languages', 'English, Bangla, Hindi'],
+  ['Availability', 'Open to freelance work'],
+]
 
 const About = () => {
-
-  let [index, setIndex] = useState(0)
-
   return (
-    
     <>
       <Transition />
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
-
-    <div className="h-full py-24 text-center font-Poppins xl:text-left">
-      <div className="relative xl:-ml-20 uppercase flex items-center justify-center">
-        <h1 className="h1 xl:text-[56px] text-white font-black absolute z-[5] ">
-          About <span className="text-accent font-black">Me</span>
-        </h1>
-        <h1 className="text-[60px] lg:text-[89px] lg:-top-[5.5rem] tracking-widest xl:-top-28 -top-16 xl:text-[110px] text-[hsl(0,0%,49%,.4)] absolute font-black">
-          Resume
-        </h1>
-      </div>
-
-      <Circles/>
-
-      <div className="container mx-auto text-white h-full flex flex-col items-center xl:flex-row gap-x-6">
-        <motion.div
-          variants={fadeIn('down', 0.2)}
-          initial="hidden"
-          animate="show"
-          exit="hidden"
-          className="flex-1 flex flex-col xl:mt-0 mt-11"
+      <main className="section-shell">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.65 }}
+            className="grid gap-8 xl:grid-cols-[0.9fr_1.1fr]"
           >
-          <h1 className="text-[27px] lg:text-[34px] xl:text-[40px] font-Poppins xl:-mt-[6.5rem] font-semibold text-white uppercase">
-            Personal <span className="text-accent">Info's</span>
-          </h1>
+            <section>
+              <span className="eyebrow">About me</span>
+              <h1 className="h1 h-[210px] gradient-text">I am learning by building real things.</h1>
+              <p className="mb-6 max-w-2xl">
+                I started with HTML, CSS, and JavaScript, then moved into React and Tailwind CSS. I am still improving every project, but I care about the basics: spacing, responsive layout, readable code, and pages that do what they are supposed to do.
+              </p>
+              <a href="mailto:mdjalaluddinarabi@gmail.com" className="primary-link">
+                Hire me
+                <FaDownload />
+              </a>
+            </section>
 
-          <div className="mt-4 flex flex-wrap">
-            <ul className="flex flex-wrap gap-x-10">
-              <div className="hidden md:block">
-                <li className="flex">
-                  <span className="text-white/60">First Name:</span>
-                  <span className="ml-2">MD.Jalal Uddin</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Age:</span>
-                  <span className="ml-2">14 Years</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Freelance:</span>
-                  <span className="ml-2 text-[#5be85b]">Available</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Phone:</span>
-                  <a href="tel: +880 01670782357">
-                    <span className="ml-2">+880 01670782357</span>
-                  </a>
-                </li>
+            <section className="glass-panel p-5 md:p-7">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {details.map(([label, value]) => (
+                  <div key={label} className="rounded-xl border border-white/10 bg-slate-950/30 p-4">
+                    <span className="text-xs uppercase tracking-[0.2em] text-slate-500">{label}</span>
+                    <p className="mt-2 text-sm font-semibold text-white md:text-base">{value}</p>
+                  </div>
+                ))}
               </div>
+            </section>
+          </motion.div>
 
-              <div className="hidden md:block">
-                <li className="flex md:mt-0 mt-2">
-                  <span className="text-white/60">Last Name:</span>
-                  <span className="ml-2">Arabi</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60"> Nationality:</span>
-                  <span className="ml-2">Bangladeshi</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Languages:</span>
-                  <span className="ml-2">English, Bengal, Hindi</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Email:</span>
-                  <a href="mailto: mdjalaluddinarabi@gmail.com">
-                    <span className="ml-2">mdjalaluddinarabi@gmail.com</span>
-                  </a>
-                </li>
-              </div>
-
-              <div className="md:hidden block">
-                <li className="flex">
-                  <span className="text-white/60">First Name:</span>
-                  <span className="ml-2">MD.Jalal Uddin</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Last Name:</span>
-                  <span className="ml-2">Arabi</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Age:</span>
-                  <span className="ml-2">14 Years</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Nationality:</span>
-                  <span className="ml-2">Bangladeshi</span>
-                </li>
-              </div>
-
-              <div className="md:hidden block">
-                <li className="flex xl:mt-0 mt-2">
-                  <span className="text-white/60">Freelance:</span>
-                  <span className="ml-2 text-[#5be85b]">Available</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60"> Languages:</span>
-                  <span className="ml-2">English, Bengal, Hindi</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Phone:</span>
-                  <span className="ml-2">+880 01670782357</span>
-                </li>
-                <li className="flex mt-4">
-                  <span className="text-white/60">Email:</span>
-                  <span className="ml-2">mdjalaluddinarabi@gmail.com</span>
-                </li>
-              </div>
-            </ul>
-          </div>
-
-          <div className="w-[13rem]">
-          <Link 
-            className="flex items-center justify-center gap-3 border border-accent mt-7 px-6 py-4 rounded hover:bg-accent transition-all" 
-            to="https://gericht.vercel.app/"
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.12 }}
+            className="mt-10 grid gap-4 md:grid-cols-2"
           >
-            <span className="text-white font-medium">Download CV</span>
-            <FaDownload className="text-white" />
-          </Link>
+            <div className="glass-panel p-6 xl:col-span-1">
+              <span className="text-5xl font-black text-white">10+</span>
+              <p className="mt-3 text-sm">Practice and portfolio projects, including landing pages, business sites, and ecommerce-style UI.</p>
+            </div>
+            <div className="glass-panel p-6 xl:col-span-1">
+              <span className="text-5xl font-black text-white">3+</span>
+              <p className="mt-3 text-sm">Years spent learning frontend development and building small projects.</p>
+            </div>
+            <div className="glass-panel p-6 md:col-span-2">
+              <h2 className="mb-5 text-2xl font-bold text-white">Core stack</h2>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {skills.map(({ name, level, icon: Icon }) => (
+                  <div key={name} className="flex items-center gap-3 rounded-xl border border-white/10 bg-slate-950/30 p-3">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-teal-300/10 text-xl text-teal-200">
+                      <Icon />
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-white">{name}</h3>
+                      <p className="text-xs text-slate-400">{level}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.section>
         </div>
-        </motion.div>
-
-        <div className="flex flex-col xl:mt-20 mt-16 w-full xl:max-w-[48%] h-[480px]">
-          <div className="flex xl:ml-0 gap-x-4 xl:gap-x-8 mx-auto xl:mx-0 mb-4">
-            {aboutData.map((item, itemIndex) => (
-              <motion.div
-              variants={fadeIn('up', 0.2)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              onClick={() => setIndex(itemIndex)}
-              key={itemIndex}
-              className={`${index === itemIndex && 'text-accent after:w-[100%] after:bg-accent after:transition-all after:duration-300'} capitalize xl:text-lg hover:text-accent transition-all duration-300 relative after:w-8 after:h-[2px] after:bg-white after:absolute after:-bottom-1 after:left-0`}
-              >
-                {item.title}
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="py-2 xl:py-6 xl:ml-0 ml-[30px] flex  flex-wrap gap-y-[1px] gap-x-3 xl:gap-y-4 items-center">
-            {aboutData[index].info.map((item, itemIndex) => (
-              <motion.div
-              variants={fadeIn('up', 0.3 + itemIndex * 0.1)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              key={itemIndex}
-              className="flex flex-col max-w-max gap-x-2 items-center text-white/60"
-              >
-                <div className="flex">{item.title}</div>
-                <div className="text-[14px] py-[10px]">{item.stage}</div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-              </motion.div>
-          </>
+      </main>
+    </>
   )
 }
 

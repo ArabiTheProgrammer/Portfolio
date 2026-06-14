@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 
@@ -7,14 +7,11 @@ const ParticlesContainer = () => {
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container) => {}, []);
-
   return (
     <Particles
       className="w-full -z-50 h-full absolute"
       id="tsparticles"
       init={particlesInit}
-      loaded={particlesLoaded}
       options={{
         fullScreen: { enable: false },
         background: { color: { value: "" } },
